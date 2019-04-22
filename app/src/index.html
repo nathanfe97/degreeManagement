@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    body{
+      background: black;
+      color: white;
+    }
+
+
+    #container{
+      position: absolute;
+      width: 98.7%;
+      height: 97.7%;
+      box-shadow: 5px 5px #3a424f;
+    }
+
+    #left{
+      width: 65%;
+      height: 97%;
+      border-radius: 10px;
+      background-color: black;
+      position: relative;
+      top: 1%;
+      left: 0.6%;
+    }
+
+    #right{
+      width: 33%;
+      height: 97.9%;
+      border-radius: 10px;
+      background-color: black;
+      position: absolute;
+      top: 1%;
+      right: 0.6%;
+    }
+    #content{
+
+      height: auto;
+    }
+
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 96%;
+      position: relative;
+      top: 10%;
+      left: 2%;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+    }
+    th{
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 5px;
+    }
+
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 5px;
+    }
+
+ /*   tr:nth-child(even) {
+      background-color: black;
+      color: white;
+    }*/
+    span{
+      font-size: 15px;
+    }
+    .textCenter {
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    #rightFooter {
+      position: absolute;
+      width: 100%;
+      bottom: 0%;
+      /*padding: 1%;*/
+      text-align: center;
+    }
+    button{
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 4%;
+      margin-right: 4%;
+      width: 20%;
+    }
+    #createDiv input {
+      position: relative;
+      padding:2%;
+      margin: 1%;
+      width: 70%;
+    }
+    #createDiv{
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+    #createDiv button{
+      position: relative;
+      margin-top: 2%;
+    }
+    #searchForm input {
+      position: relative;
+      padding:2%;
+      margin: 1%;
+      width: 60%;
+    }
+    #searchForm select {
+      position: relative;
+      padding:2%;
+      margin: 1%;
+      width: 20%;
+    }
+    #searchForm{
+      text-align: center;
+    }
+    #searchResult{
+      position: relative;
+      height: auto;
+    }
+    
+    #transactionLog {
+      height: auto;
+    }
+    #moreInfo {
+      display: none;
+      position: absolute;
+      top: 10%;
+      z-index: 1;
+      left: 25%;
+      width: 50%;
+      height: 50%;
+      background-color: rgb(245, 238, 238);
+      font-size: 30px;
+      color: black;
+    }
+    #moreInfo span{
+      font-size: 30px;
+      color: blueviolet;
+    }
+    #moreInfo button{
+      position: relative;
+      left: 35%;
+    }
+
+  </style>
+  <script src="index.js"></script>
+  <title></title>
+</head>
+<body>
+ <div id="container">
+    <div id="left">
+      <div id="moreInfo">
+        <div> School:<span id="2"></span><br></div><br>
+        <div> Major: <span id="3"></span><br></div><br>
+        <div> Name: <span id="4"></span><br></div><br>
+        <div> Date of Birth: <span id="5"></span><br></div><br>
+        <div> Graduated Year: <span id="6"></span><br></div><br>
+        <div> Graduated Type: <span id="7"></span><br></div><br>
+        <button onclick="App.exitClick()" id="closeBut">Close</button>
+      </div>
+      <div id='more' class="modal-content animate"></div>
+      <div id="loader"></div>
+      <div id="content">
+        <div class="textCenter"><hr>DEGREE LIST<hr></div>
+        <table class="table">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">School</th>
+            <th scope="col">Major</th>
+            <th scope="col">Name</th>
+            <th scope="col">Year</th>
+          </tr>
+          <tbody id="Results"></tbody>
+        </table>
+      </div>
+
+      <div id="transactionLog" style="display: none;">
+        <div class="textCenter"><hr>TRANSACTION LOGS<hr></div>
+        <table class="table">
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Owner Name</th>
+            <th scope="col">Transaction Cost(Gas)</th>
+            <th scope="col">location</th>
+          </tr>
+          <tbody id="log"></tbody>
+        </table>
+      </div>
+
+      <div id="searchResult" style="display: none;">
+          <div class="textCenter"><hr>SEARCH RESULTS<hr></div>
+          <table class="table">
+              <tr>
+                  <th scope="col">School</th>
+                  <th scope="col">Major</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Year</th>
+                  <th scope="col">Type</th>
+              </tr>
+            <tbody id="Search"></tbody>
+          </table>
+      </div>
+
+    </div>
+    <div id="right">
+      <div onmouseleave="App.addressOut()"  onmouseover="App.addressHover()" class="textCenter"><hr>NETWORK STATUS<hr>
+        <span style="font-weight: bold;font-size: 18px;">Blockchain Network Address</span><br>
+        <span id="address">404: Not Found</span><br>
+        <span style="font-weight: bold;font-size: 18px;">User Account Kind</span><br>
+        <span id="status"> 404: Not Found</span>
+      </div>
+      <div id="searchForm">
+          <div class="textCenter"><hr>FORM SEARCH<hr></div>
+          <input type="text" placeholder="Search keys words" id="textValue">
+          <select id="selectValue">
+            <option value="2">School</option>
+            <option value="3">Major</option>
+            <option value="4" selected>Name</option>
+            <option value="6">Year</option>
+          </select><br><br>
+          <button onclick="App.searchFunction()" id="submit" >Search</button>
+
+      </div>
+      <div id="createDiv" style="display: none;">
+        <div class="textCenter"><hr>CREATE CERTIFICATE<hr></div>
+          <input type="text" placeholder="School" id="school"><br>
+          <input type="text" placeholder="Major" id="major"><br>
+          <input type="text" placeholder="Name" id="name"><br>
+          <input type="text" placeholder="Birthday" id="date"><br>
+          <input type="text" placeholder="Graduated year" id="year"><br>
+          <input type="text" placeholder="Type of Graduation" id="typep"><br>
+          <button onclick="App.createDegree()" id="submit" >Create</button>
+      </div>
+      <div id="rightFooter">
+        <hr><button onclick="App.login()" id="login">Admin</button>
+            <input style="display: none" type="password" id="pass" placeholder="Admin Password">
+        <hr>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
