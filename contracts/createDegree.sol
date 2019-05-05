@@ -4,7 +4,7 @@ contract createDegree {
 
     uint public degreeCount;
     string public adminpass ="admin1234";
-    event createLog(string _name,uint fee,string time,address addr);
+    event createLog(string _name,uint fee,string time,address addr,address maker);
 
     struct degreeStruct {
         address maker;
@@ -26,7 +26,7 @@ contract createDegree {
         degreeCount++;
         degrees[degreeCount] = degreeStruct(msg.sender, _owner, _school, _major, _name, _dateOfBirth, _yearOfGraduation, _graduatedClassification);
         degreeAddress[degreeCount] = address(oneNewDegree);
-        emit createLog(_name,gasleft(),_time,address(oneNewDegree));
+        emit createLog(_name,gasleft(),_time,address(oneNewDegree),msg.sender);
     }
 
     constructor() public {

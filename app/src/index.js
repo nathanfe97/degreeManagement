@@ -194,7 +194,7 @@ const App = {
       fromBlock: 0, toBlock: 'latest' },
       function(error, event){
         var fee =1000000-event.returnValues[1];
-        $("#log").append("<tr><td>"+event.returnValues[2]+"</td><td>"+event.returnValues[0]+"</td><td>"+fee+"</td>"+"<td>"+event.returnValues[3]+"</td></tr><br>");
+        $("#log").append("<tr><td>"+event.returnValues[2]+"</td><td>"+event.returnValues[0]+"</td><td>"+fee+"</td>"+"<td>"+event.returnValues[4]+"</td></tr><br>");
       })
       $("#transactionLog").show();
   },
@@ -210,7 +210,7 @@ window.addEventListener("load", function() {
     window.ethereum.enable(); // get permission to access accounts
   } else {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    App.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/degree"),
+    App.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/5990c3f61e694c5c8028e6004657598f"),
     );
   }
 
