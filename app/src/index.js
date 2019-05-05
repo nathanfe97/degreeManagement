@@ -32,11 +32,14 @@ const App = {
       // web3.eth.getBlock("latest", false, (error, result) => {this.gasMax = result.gasLimit});
       // alert(this.gasMax);
       
-      $("#address").html("Localhost:8545");
+      $("#addrspan").text("Connected to Blockchain");
 
       // get accounts
       this.accounts = await web3.eth.getAccounts();
       if(document.cookie=="0"){
+        $("#address").html("https://ropsten.infura.io/...");
+        $("#addrspan").text("Blockchain Network address");
+        $("#address").show();
         $("#login").text("Log Out");
         $("#pass").hide();
         $("#createDiv").show();
@@ -44,6 +47,11 @@ const App = {
         $("#status").html("ADMIN");
         this.readEvent();
         $("#content").hide();
+        $("#countD").show();
+        var { degreeCount } = this.creater.methods;
+        var count = await degreeCount().call();
+        $("#number").text(count);
+        $("#number").show();
       }
       else{
         this.account="GUESS";
@@ -60,7 +68,7 @@ const App = {
     $("#status").html(this.account);
   },
   addressOut: function(){
-    $("#address").html("Localhost:8545");
+    $("#address").html("https://ropsten.infura.io/...");
     if(this.account!=="GUESS"){
       $("#status").html("ADMIN");  
     }
@@ -101,7 +109,6 @@ const App = {
     search.html("");
     var selectValue = $("#selectValue").val();
     var textValue = $("#textValue").val();
-    
     switch(selectValue){
       case "2":var n = 2;break;
       case "3":var n = 3;break;
@@ -194,7 +201,10 @@ const App = {
       fromBlock: 0, toBlock: 'latest' },
       function(error, event){
         var fee =1000000-event.returnValues[1];
-        $("#log").append("<tr><td>"+event.returnValues[2]+"</td><td>"+event.returnValues[0]+"</td><td>"+fee+"</td>"+"<td>"+event.returnValues[3]+"</td></tr><br>");
+        $("#log").append("<tr><td>"+event.returnValues[2]+"</td><td>"
+          +event.returnValues[0]+"</td><td>"
+          +fee+"</td><td>"
+          +event.returnValues[3]+"</td></tr><br>");
       })
       $("#transactionLog").show();
   },

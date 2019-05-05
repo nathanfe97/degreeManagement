@@ -63,10 +63,6 @@
       padding: 5px;
     }
 
- /*   tr:nth-child(even) {
-      background-color: black;
-      color: white;
-    }*/
     span{
       font-size: 15px;
     }
@@ -210,10 +206,12 @@
     </div>
     <div id="right">
       <div onmouseleave="App.addressOut()"  onmouseover="App.addressHover()" class="textCenter"><hr>NETWORK STATUS<hr>
-        <span style="font-weight: bold;font-size: 18px;">Blockchain Network Address</span><br>
-        <span id="address">404: Not Found</span><br>
+        <span id="addrspan" style="font-weight: bold;font-size: 18px;">Blockchain Network Address</span><br>
+        <span style=" display: none;" id="address">404: Not Found</span><br>
         <span style="font-weight: bold;font-size: 18px;">User Account Kind</span><br>
-        <span id="status"> 404: Not Found</span>
+        <span id="status"> 404: Not Found</span><br>
+        <span id="countD" style="display: none;font-weight: bold;font-size: 18px;">Number of certificate:</span><br>
+        <span style="display: none;" id="number"> 404: Not Found</span><br>
       </div>
       <div id="searchForm">
           <div class="textCenter"><hr>FORM SEARCH<hr></div>
