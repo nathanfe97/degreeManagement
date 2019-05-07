@@ -1,0 +1,21 @@
+// CanTho University,Information Technology,Huynh Thanh Toan,01/02/1997,2019,Good
+//         Soctrang University,Information Technology,Nguyen Van A,12/02/1997,2018,Excellent
+//         Travinh University,Information Technology,Ly chinh Van,15/02/1997,2017,Good
+//         Angiang University,Information Technology,Huynh Thanh Tam,15/09/1997,2019,Good
+//         Camau University,Information Technology,Duong Thanh Dong,18/06/1997,2018,Excellent
+//         Nhatrang University,Information Technology,Vo Tan Tai,10/12/1997,2017,Good
+//         Hochiminh University,Information Technology,Lam Chan Khang,12/12/1997,2018,Good
+//         Danang University,Information Technology,Tran Thu Do,01/12/1997,2017,Good
+//         Hanoi University,Information Technology,Ha Tuan Tam,10/09/1997,2018,Bad
+//         Haiphong University,Information Technology,Lam ly Thi,10/06/1997,2015,Good
+
+//         Soctrang University,Computer Science,Huynh Thanh Toan,01/02/1997,2019,Good
+//         CanTho University,Computer Science,Nguyen Van A,12/02/1997,2018,Excellent
+//         Angiang University,Computer Science,Ly chinh Van,15/02/1997,2017,Good
+//         Camau University,Computer Science,Huynh Thanh Tam,15/09/1997,2019,Good
+//         Hochiminh University,Computer Science,Duong Thanh Dong,18/06/1997,2018,Excellent
+//         Danang University,Computer Science,Vo Tan Tai,10/12/1997,2017,Good
+//         Hanoi University,Computer Science,Lam Chan Khang,12/12/1997,2018,Good
+//         Haiphong University,Computer Science,Tran Thu Do,01/12/1997,2017,Good
+//         Nhatrang University,Computer Science,Ha Tuan Tam,10/09/1997,2018,Bad
+//         CanTho University,Computer Science,Lam ly Thi,10/06/1997,2015,Good

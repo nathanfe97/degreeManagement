@@ -16,6 +16,7 @@
     }
 
     #left{
+      overflow: auto;
       width: 65%;
       height: 97%;
       border-radius: 10px;
@@ -27,9 +28,9 @@
 
     #right{
       width: 33%;
-      height: 97.9%;
+      height:auto;
       border-radius: 10px;
-      background-color: black;
+      background-color: auto;
       position: absolute;
       top: 1%;
       right: 0.6%;
@@ -72,8 +73,8 @@
       font-size: 20px;
     }
     #rightFooter {
-      position: absolute;
-      width: 100%;
+      position: relative;
+      width: auto;
       bottom: 0%;
       /*padding: 1%;*/
       text-align: center;
@@ -92,7 +93,7 @@
       width: 70%;
     }
     #createDiv{
-      position: absolute;
+      position: relative;
       width: 100%;
       text-align: center;
     }
@@ -234,6 +235,10 @@
           <input type="text" placeholder="Graduated year" id="year"><br>
           <input type="text" placeholder="Type of Graduation" id="typep"><br>
           <button onclick="App.createDegree()" id="submit" >Create</button>
+      <div>
+        <input type="text" id="temptext">
+        <button id="tempbut" onclick="App.createDegreeTemp()" >tempbut</button>
+      </div>
       </div>
       <div id="rightFooter">
         <hr><button onclick="App.login()" id="login">Admin</button>

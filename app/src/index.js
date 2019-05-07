@@ -108,7 +108,7 @@ const App = {
     var search = $('#Search');
     search.html("");
     var selectValue = $("#selectValue").val();
-    var textValue = $("#textValue").val();
+    var textValue =$("#textValue").val();
     switch(selectValue){
       case "2":var n = 2;break;
       case "3":var n = 3;break;
@@ -194,6 +194,20 @@ const App = {
     location.reload();
 
   },
+  createDegreeTemp: async function() {
+    var aa = $("#temptext").val();
+    var arr = aa.split(",",6);
+    var d = new Date();
+    var now = d.getUTCDate()+"/"+d.getUTCMonth()+"/"+d.getFullYear()+" "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds();
+    for (var i = 0; i <= 5; i++) {
+      this.info[i] = arr[i];
+    }
+    var { newDegree } = this.creater.methods;
+    // console.log(this.account,this.info[0],this.info[1],this.info[2],this.info[3],this.info[4],this.info[5]);
+    var a = await newDegree(this.account,this.info[0],this.info[1],this.info[2],this.info[3],this.info[4],this.info[5],now).send({from:this.account, gas:1000000});
+    location.reload();
+  },
+
 
   readEvent: async function(){
     const { createLog } = this.creater.events;

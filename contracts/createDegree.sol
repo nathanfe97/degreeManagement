@@ -28,9 +28,4 @@ contract createDegree {
         degreeAddress[degreeCount] = address(oneNewDegree);
         emit createLog(_name,gasleft(),_time,address(oneNewDegree),msg.sender);
     }
-
-    constructor() public {
-        // newDegree(address(0), "CanTho University","Information Technology", "Huynh Thanh Toan", "10/02/1997","2019","Good","February 17, 2019 13:00:00 -0500");
-    }
-
 }
