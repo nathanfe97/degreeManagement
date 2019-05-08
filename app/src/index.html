@@ -21,7 +21,7 @@
       height: 97%;
       border-radius: 10px;
       background-color: black;
-      position: relative;
+      position: absolute;
       top: 1%;
       left: 0.6%;
     }
@@ -36,8 +36,9 @@
       right: 0.6%;
     }
     #content{
-
-      height: auto;
+      position: absolute;
+      width: 96%;
+      height: 100px;
     }
 
 
@@ -45,8 +46,9 @@
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 96%;
+      /*height: 70%;*/
       position: relative;
-      top: 10%;
+      top: 2%;
       left: 2%;
       font-size: 16px;
       background-color: white;
@@ -175,6 +177,7 @@
           </tr>
           <tbody id="Results"></tbody>
         </table>
+      
       </div>
 
       <div id="transactionLog" style="display: none;">
@@ -235,10 +238,6 @@
           <input type="text" placeholder="Graduated year" id="year"><br>
           <input type="text" placeholder="Type of Graduation" id="typep"><br>
           <button onclick="App.createDegree()" id="submit" >Create</button>
-      <div>
-        <input type="text" id="temptext">
-        <button id="tempbut" onclick="App.createDegreeTemp()" >tempbut</button>
-      </div>
       </div>
       <div id="rightFooter">
         <hr><button onclick="App.login()" id="login">Admin</button>

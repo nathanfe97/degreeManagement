@@ -115,6 +115,13 @@ const App = {
       case "4":var n = 4;break;
       case "6":var n = 6;break;
     }
+    if(this.account=="GUESS"){
+      $("#content").hide();
+    }
+    else{
+      $("#transactionLog").hide();
+    }
+    
     for(var i=1;i<this.list.length;i++){
       if(this.list[i][n]==textValue){
         var Template = "<tr onClick='App.getInfo("+i+",2)'><td>"+this.list[i][2]+"</td><td>" + this.list[i][3] + "</td><td>" + this.list[i][4] + "</td><td>" + this.list[i][6] + "</td><td>"+ this.list[i][7] +"</td></tr>"
@@ -193,19 +200,6 @@ const App = {
     const a = await newDegree(this.account,this.info[0],this.info[1],this.info[2],this.info[3],this.info[4],this.info[5],now).send({from:this.account, gas:1000000});
     location.reload();
 
-  },
-  createDegreeTemp: async function() {
-    var aa = $("#temptext").val();
-    var arr = aa.split(",",6);
-    var d = new Date();
-    var now = d.getUTCDate()+"/"+d.getUTCMonth()+"/"+d.getFullYear()+" "+d.getUTCHours()+":"+d.getUTCMinutes()+":"+d.getUTCSeconds();
-    for (var i = 0; i <= 5; i++) {
-      this.info[i] = arr[i];
-    }
-    var { newDegree } = this.creater.methods;
-    // console.log(this.account,this.info[0],this.info[1],this.info[2],this.info[3],this.info[4],this.info[5]);
-    var a = await newDegree(this.account,this.info[0],this.info[1],this.info[2],this.info[3],this.info[4],this.info[5],now).send({from:this.account, gas:1000000});
-    location.reload();
   },
 
 
